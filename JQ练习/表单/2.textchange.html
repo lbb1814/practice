@@ -51,10 +51,16 @@
 <script>
     var $comment=$('#comment');
     $('.bigger').click(function () {
-        $comment.height($comment.height()<500?$comment.height()+50:$comment.height());
+        if($comment.height()<500){
+        // $comment.stop(false,true).animate({height:'+=50'},400);
+        $comment.animate({scrollTop:'-=50'},400);
+        }
     })
     $('.smaller').click(function () {
-        $comment.height($comment.height()>50?$comment.height()-50:$comment.height());
+       /* if($comment.height()>50){
+        $comment.stop(false,true).animate({height:'-=50'},400);
+        }*/
+       $comment.stop(false,true).height($comment.height()>50?$comment.animate({height:'-=50'},400):$comment.height());
     })
 </script>
 </body>
