@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>change</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        #header,#hunt,#bot{
+            height: 100px;
+            width: 960px;
+            margin: 30px auto;
+            text-align: center;
+            line-height: 100px;
+            background: #cccccc;
+        }
+        #image{
+            height: 580px;
+            width: 960px;
+            margin: 0 auto;
+        }
+        #image img{
+            width: 100%;
+        }
+        #tex{
+            width: 960px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        #tex #left{
+            width: 600px;
+            margin-right: 3%;
+            background: #00ff00;
+            float: left;
+        }
+        #tex #right{
+            background: #0000ff;
+            float: left;
+            width: 330px;
+        }
+        @media (max-width: 960px) {
+            #header,#hunt,#bot,#image,#tex{
+                width:100%;
+            }
+            #image{
+                height: 57%;
+            }
+            #tex #left{
+                width: 60%;
+                margin-right: 3%;
+            }
+            #tex #right{
+                width: 37%;
+            }
+        }
+        @media (max-width: 560px) {
+            #tex #left{
+                width: 100%;
+                margin-right: 0;
+            }
+            #tex #right{
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <h2>页眉</h2>
+</div>
+<div id="hunt">
+    <h2>检索</h2>
+</div>
+<div id="image">
+    <img src="01.jpg" alt="">
+</div>
+<div id="tex">
+    <div id="left">
+        Save time and access relevant information in a convenient, fast, and reliable way using the leading engineering information discovery platform. Engineering Village is a powerful search platform that is essential for researchers, students, and faculty. Using a wide range of resources, including journals, conference proceedings, trade publications, patents, government reports and more, researchers can improve productivity and facilitate important discoveries with Engineering Village.
+    </div>
+    <div id="right">
+        Engineering Village takes engineering research to the next level with a comprehensive database that includes the most authoritative engineering resources available to answer today’s most timely questions—from theoretical to applied, and basic to complex.
+    </div>
+</div>
+<div id="bot">
+    <h2>页脚</h2>
+</div>
+</body>
+</html>
