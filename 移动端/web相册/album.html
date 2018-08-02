@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Photo Album</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container img{
+            width: 25%;
+            float: left;
+            box-sizing: border-box;
+            border-right: 4px solid #000;
+            border-bottom: 4px solid #000000;
+        }
+        #shower{
+            background-color: pink;
+            background-repeat:no-repeat;
+            background-position:center;
+            background-size: contain;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+        #logo{
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            height: 50px;
+            display: none;
+        }
+        #logo #prev{
+            position: absolute;
+            left: 10px;
+            height: 100%;
+        }
+        #logo #next{
+            position: absolute;
+            right: 10px;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+
+</div>
+<div id="shower">
+
+</div>
+<div id="logo">
+    <img id="prev" src="images/prev.png" alt="">
+    <img id="next" src="images/next.png" alt="">
+</div>
+<script src="zepto.js"></script>
+<script src="touch.js"></script>
+<script>
+    var Image='';
+    var iNow=0;
+    for (i=0;i<24;i++){
+        Image+=' <img src="images/'+(i+1)+'.jpg" alt="">'
+    }
+    $('#container').html(Image);
+    $('#container').on('tap','img',function () {
+        iNow=$(this).index();
+        $('#container').hide();
+        $('#shower').show().css('background-image','url(images/'+(iNow+1)+'.jpg)');
+        $('#logo').show();
+    });
+    $('#shower').on('tap',function () {
+        $('#container').show();
+        $('#shower').hide();
+        $('#logo').hide();
+    });
+    $('#shower').on('swipeLeft',function () {
+        iNow++;
+        if(iNow==23){
+            iNow=0;
+        }
+        $('#shower').css('background-image','url(images/'+(iNow+1)+'.jpg)');
+    });
+    $('#shower').on('swipeRight',function () {
+        iNow--;
+        if(iNow==-1){
+            iNow=23;
+        }
+        $('#shower').css('background-image','url(images/'+(iNow+1)+'.jpg)');
+    });
+</script>
+</body>
+</html>
